@@ -11,9 +11,9 @@ public class Message {
 
 	private final MessageProperties messageProperties;
 	
-	private final byte\[\] body;
+	private final byte [] body;
 	
-	public Message\(byte\[\] body, MessageProperties messageProperties\) {
+	public Message (byte [] body, MessageProperties messageProperties) {
 	
 	this.body = body;
 	
@@ -21,13 +21,13 @@ public class Message {
 	
 	}
 
-	public byte\[\] getBody\(\) {
+	public byte [] getBody() {
 	
 	return this.body;
 	
 	}
 	
-	public MessageProperties getMessageProperties\(\) {
+	public MessageProperties getMessageProperties() {
 	
 	return this.messageProperties;
 	
