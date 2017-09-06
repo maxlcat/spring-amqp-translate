@@ -15,21 +15,21 @@ public class Message {
 	
 	public Message (byte [] body, MessageProperties messageProperties) {
 	
-	this.body = body;
-	
-	this.messageProperties = messageProperties;
+		this.body = body;
+		
+		this.messageProperties = messageProperties;
 	
 	}
 
 	public byte [] getBody() {
 	
-	return this.body;
+		return this.body;
 	
 	}
 	
 	public MessageProperties getMessageProperties() {
 	
-	return this.messageProperties;
+		return this.messageProperties;
 	
 	}
 }
