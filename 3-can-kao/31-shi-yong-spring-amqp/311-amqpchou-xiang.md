@@ -25,7 +25,8 @@ public class Message {
 	
 		return this.body;
 	
-	}
+	}  
+	
 	
 	public MessageProperties getMessageProperties() {
 	
@@ -34,4 +35,8 @@ public class Message {
 	}
 }
 ```
+
+`MessageProperties`接口定义了几个通用的属性，例如 *messageId*、*timestamp*、*contentType*等，这些属性也可以通过调用`setHeader(String key, Object value)`方法进行自定义`headers`。  
+
+**Exchange**  
 
