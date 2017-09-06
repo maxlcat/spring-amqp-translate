@@ -6,31 +6,32 @@ Spring AMQP由几个用JAR表示的模块组成。这些模块是：spring-amqp�
 
 Spring AMQP定义了消息类，作为AMQP域模型的一部分。消息类的目的主要是将消息主体与属性封装在一个实例中，简化API。消息类的定义非常简单。
 
+```
 public class Message {
 
-private final MessageProperties messageProperties;
+	private final MessageProperties messageProperties;
+	
+	private final byte\[\] body;
+	
+	public Message\(byte\[\] body, MessageProperties messageProperties\) {
+	
+	this.body = body;
+	
+	this.messageProperties = messageProperties;
+	
+	}
 
-private final byte\[\] body;
-
-public Message\(byte\[\] body, MessageProperties messageProperties\) {
-
-this.body = body;
-
-this.messageProperties = messageProperties;
-
+	public byte\[\] getBody\(\) {
+	
+	return this.body;
+	
+	}
+	
+	public MessageProperties getMessageProperties\(\) {
+	
+	return this.messageProperties;
+	
+	}
 }
-
-public byte\[\] getBody\(\) {
-
-return this.body;
-
-}
-
-public MessageProperties getMessageProperties\(\) {
-
-return this.messageProperties;
-
-}
-
-}
+```
 
