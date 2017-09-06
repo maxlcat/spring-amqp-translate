@@ -40,3 +40,21 @@ public class Message {
 
 **Exchange**  
 
+`Exchange`接口代表了一个AMQP Exchange，消息生产者所发送的地方。一个虚拟主机中的每个Exchange都有一个唯一的名称和其他一些属性：  
+
+```  
+public interface Exchange {
+
+    String getName();
+
+    String getExchangeType();
+
+    boolean isDurable();
+
+    boolean isAutoDelete();
+
+    Map<String, Object> getArguments();
+
+}
+```  
+通过上面可以发现，Exchange有一个`type`,基本的类型有：`Direct`、`Topic`、`Fanout`、`Header`，在核心包中会有针对每种类型的具体实现
