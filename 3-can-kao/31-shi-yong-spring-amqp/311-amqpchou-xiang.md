@@ -9,40 +9,40 @@ Spring AMQP定义了消息类，作为AMQP域模型的一部分。消息类的�
 ```
 public class Message {
 
-	private final MessageProperties messageProperties;
-	
-	private final byte [] body;
-	
-	public Message (byte [] body, MessageProperties messageProperties) {
-	
-		this.body = body;
-		
-		this.messageProperties = messageProperties;
-	
-	}
+    private final MessageProperties messageProperties;
 
-	public byte [] getBody() {
-	
-		return this.body;
-	
-	}  
-	
-	
-	public MessageProperties getMessageProperties() {
-	
-		return this.messageProperties;
-	
-	}
+    private final byte [] body;
+
+    public Message (byte [] body, MessageProperties messageProperties) {
+
+        this.body = body;
+
+        this.messageProperties = messageProperties;
+
+    }
+
+    public byte [] getBody() {
+
+        return this.body;
+
+    }  
+
+
+    public MessageProperties getMessageProperties() {
+
+        return this.messageProperties;
+
+    }
 }
 ```
 
-`MessageProperties`接口定义了几个通用的属性，例如 *messageId*、*timestamp*、*contentType*等，这些属性也可以通过调用`setHeader(String key, Object value)`方法进行自定义`headers`。  
+`MessageProperties`接口定义了几个通用的属性，例如 _messageId_、_timestamp_、_contentType_等，这些属性也可以通过调用`setHeader(String key, Object value)`方法进行自定义`headers`。
 
-**Exchange**  
+**Exchange**
 
-`Exchange`接口代表了一个AMQP Exchange，消息生产者所发送的地方。一个虚拟主机中的每个Exchange都有一个唯一的名称和其他一些属性：  
+`Exchange`接口代表了一个AMQP Exchange，消息生产者所发送的地方。一个虚拟主机中的每个Exchange都有一个唯一的名称和其他一些属性：
 
-```  
+```
 public interface Exchange {
 
     String getName();
@@ -56,5 +56,11 @@ public interface Exchange {
     Map<String, Object> getArguments();
 
 }
-```  
+```
+
 通过上面可以发现，Exchange有一个`type`,基本的类型有：`Direct`、`Topic`、`Fanout`、`Header`，在核心包中会有针对每种类型的具体实现
+
+**Queue**
+
+`Queue`代表了消费者接收消息的的组件来源，与大多数的Exchange类似，我们的目的是为了实现AMQP的抽象表示
+
