@@ -66,12 +66,13 @@ public interface Exchange {
 
 ```
 public class Queue {
+
     private final String name;
-    
+
     private volatile boolean durable; 
-    
+
     private volatile boolean exclusive;
-         
+
     private volatile boolean autoDelete;
 
     private volatile Map<String, Object> arguments;
