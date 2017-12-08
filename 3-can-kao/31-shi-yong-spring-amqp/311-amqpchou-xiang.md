@@ -64,3 +64,28 @@ public interface Exchange {
 
 `Queue`代表了消费者接收消息的的组件来源，与大多数的Exchange类似，我们的目的是为了实现AMQP的抽象表示
 
+```
+public class Queue {
+    private final String name;
+    
+    private volatile boolean durable; 
+    
+    private volatile boolean exclusive;
+         
+    private volatile boolean autoDelete;
+
+    private volatile Map<String, Object> arguments;
+
+    /**
+     * The queue is durable, non-exclusive and non auto-delete.
+     *
+     * @param name the name of the queue.
+     */
+    public Queue(String name) {
+        this(name, true, false, false);
+    } 
+}
+```
+
+
+
