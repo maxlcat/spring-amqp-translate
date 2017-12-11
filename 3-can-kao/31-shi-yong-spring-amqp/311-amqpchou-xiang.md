@@ -88,5 +88,23 @@ public class Queue {
 }
 ```
 
+**Binding**
 
+考虑到生产者将消息发送到Exchange，消费者从Queue接收消息，队列与交换机的绑定对生产者和消费者之间消息的连接至关重要。在Spring AMQP中，定义一个`Binding `类表示这些连接，下面是一些基本的选项
+
+可以用一个固定的路由key将一个队列绑定到一个DirectExchange.
+
+`new Binding(someQueue, someDirectExchange, "foo.bar")`
+
+可以通过一个路由模式将队列绑定到TopicExchange
+
+`new Binding(someQueue, someTopicExchange, "foo.*");`
+
+可以不通过路由键将队列绑定到FanoutExchange
+
+`new Binding(someQueue, someFanoutExchange)`
+
+我们也提供了一种方便的“API”形式`BindingBuilder`
+
+`Binding bind = BindingBuilder.bind(someQueue).to(someTopicExchange).with("foo.*")`
 
