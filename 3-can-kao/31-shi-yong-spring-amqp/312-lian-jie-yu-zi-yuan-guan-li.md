@@ -83,5 +83,14 @@ ConnectionFactoru可以很方便的使用rabbit命名空间创建
 </bean>
 ```
 
+**配置底层客户端连接工厂**
+
+CachingConnectionFactory使用Rabbit客户端ConnectionFactory的一个实例；当在CachingConnectionFactory配置等效属性时，通过一些配置属性（主机、端口、用户名、密码等）。配置其他属性时（例如clientProperties），可以定义一个rabbit工厂并且为其提供一个实现，通过使用适当的构造函数。
+
+```
+<rabbit:connection-factory
+      id="connectionFactory" connection-factory="rabbitConnectionFactory"/>
+```
+
 
 
