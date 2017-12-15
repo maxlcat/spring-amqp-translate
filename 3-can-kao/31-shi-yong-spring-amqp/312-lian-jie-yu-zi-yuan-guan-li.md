@@ -92,5 +92,24 @@ CachingConnectionFactory使用Rabbit客户端ConnectionFactory的一个实例；
       id="connectionFactory" connection-factory="rabbitConnectionFactory"/>
 ```
 
+**RabbitConnectionFactoryBean and Configuring SSL**
+
+在1.4版本以后，提供了一个RabbitConnectionFactory，通过依赖注入可以很方便的在客户端连接工厂配置SSL属性
+
+```
+<rabbit:connection-factory id="rabbitConnectionFactory"
+    connection-factory="clientConnectionFactory"
+    host="${host}"
+    port="${port}"
+    virtual-host="${vhost}"
+    username="${username}" password="${password}" />
+
+<bean id="clientConnectionFactory"
+        class="org.springframework.xd.dirt.integration.rabbit.RabbitConnectionFactoryBean">
+    <property name="useSSL" value="true" />
+    <property name="sslPropertiesLocation" value="file:/secrets/rabbitSSL.properties"/>
+</bean>
+```
+
 
 
