@@ -113,3 +113,5 @@ CachingConnectionFactory使用Rabbit客户端ConnectionFactory的一个实例；
 
 有关配置SSL可参阅有关RabbitMQ文档
 
+Routing Connection Factory
+
