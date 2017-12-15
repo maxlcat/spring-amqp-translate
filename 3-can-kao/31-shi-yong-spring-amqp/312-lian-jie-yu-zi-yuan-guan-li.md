@@ -111,5 +111,5 @@ CachingConnectionFactory使用Rabbit客户端ConnectionFactory的一个实例；
 </bean>
 ```
 
-参阅有关RabbitMQ文档有关配置SSL
+有关配置SSL可参阅有关RabbitMQ文档
 
